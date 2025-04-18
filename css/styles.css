@@ -56,12 +56,15 @@ nav {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #61dafb, #282c34);
+    padding: 6rem 2rem;
     color: #fff;
     margin-top: 4rem;
     position: relative;
     overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero::before {
@@ -71,8 +74,20 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/></svg>') center/cover;
-    opacity: 0.1;
+    background: url('../images/main-logo.jpg') center/cover no-repeat;
+    filter: brightness(0.7);
+    z-index: -2;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(97, 218, 251, 0.8), rgba(40, 44, 52, 0.9));
+    z-index: -1;
 }
 
 .hero-content {
@@ -80,62 +95,62 @@ nav {
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem;
 }
 
-.react-logo {
-    width: 120px;
-    height: auto;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.5));
-    animation: float 3s ease-in-out infinite;
+.hero-text {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0px);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     font-weight: 400;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
     opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
     background: #fff;
     color: #282c34;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     background: #61dafb;
     color: #fff;
 }
@@ -405,19 +420,25 @@ footer {
     }
     
     .hero {
-        padding: 3rem 1rem;
-    }
-    
-    .react-logo {
-        width: 100px;
+        padding: 4rem 1rem;
+        min-height: 70vh;
     }
     
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .hero h2 {
         font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
     
     .features-grid,
