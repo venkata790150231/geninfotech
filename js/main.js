@@ -29,4 +29,4 @@ featureCards.forEach(card => {
 });
 
 // Add current year to footer
-document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} AI Training Company. All rights reserved.`; 
+document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} GenInfoTech. All rights reserved.`; 

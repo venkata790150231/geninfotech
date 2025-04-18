@@ -55,42 +55,89 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-    color: white;
     text-align: center;
-    padding: 8rem 2rem 4rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #61dafb, #282c34);
+    color: #fff;
     margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/></svg>') center/cover;
+    opacity: 0.1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.react-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #fff;
-    color: #2563eb;
     padding: 1rem 2rem;
-    border-radius: 50px;
+    background: #fff;
+    color: #282c34;
     text-decoration: none;
+    border-radius: 50px;
     font-weight: bold;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: #61dafb;
+    color: #fff;
 }
 
 /* Course Info Section */
@@ -186,21 +233,46 @@ nav {
     text-align: center;
 }
 
+.contact h2 {
+    color: #1e293b;
+    margin-bottom: 2rem;
+}
+
 .contact-info {
     max-width: 600px;
-    margin: 2rem auto;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info p {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    color: #475569;
+    font-size: 1.1rem;
+    line-height: 1.6;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .contact-info i {
     color: #2563eb;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.contact-link {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #1e40af;
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -301,10 +373,43 @@ footer {
     opacity: 0.3;
 }
 
+/* Tools Logos Section */
+.tools-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.tool-logo {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) brightness(0.8);
+}
+
+.tool-logo:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(1);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+    }
+    
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .react-logo {
+        width: 100px;
     }
     
     .hero h1 {
@@ -342,5 +447,30 @@ footer {
     .student-item img {
         width: 120px;
         height: 120px;
+    }
+    
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contact-info i {
+        margin-bottom: 0.5rem;
+    }
+    
+    .tools-logos {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .tool-logo {
+        height: 50px;
     }
 } 
